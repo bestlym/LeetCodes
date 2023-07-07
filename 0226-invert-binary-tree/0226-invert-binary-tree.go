@@ -1,27 +1,21 @@
 /**
  * Definition for a binary tree node.
- * public class TreeNode {
- *     public int val;
- *     public TreeNode left;
- *     public TreeNode right;
- *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
  * }
  */
-public class Solution {
-    public TreeNode InvertTree(TreeNode root) {
-        if(root == null)
-            return null;
-        
-        var left = InvertTree(root.left);
-        var right = InvertTree(root.right);
-        
-        root.left = right;
-        root.right = left;
-        
-        return root;
+func invertTree(root *TreeNode) *TreeNode {
+    if(root == nil){
+        return nil;
     }
+    
+    var left *TreeNode = invertTree(root.Left);
+    var right *TreeNode = invertTree(root.Right);
+    
+    root.Left = right;
+    root.Right = left;
+    
+    return root;
 }
