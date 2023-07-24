@@ -9,7 +9,7 @@ public class Solution {
         {
             if(dic.TryGetValue(target - nums[i], out int r))
             {
-                return new int[]{r, i};
+                return new int[2]{r, i};
             }
             dic[nums[i]] = i;
         }
