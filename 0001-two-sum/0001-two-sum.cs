@@ -1,7 +1,6 @@
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
         if(nums == null || nums.Length < 2) return new int[2];
-        if(nums == null || nums.Length < 2) return new int[2];
         
         Dictionary<int, int> dic = new Dictionary<int, int>();
         
