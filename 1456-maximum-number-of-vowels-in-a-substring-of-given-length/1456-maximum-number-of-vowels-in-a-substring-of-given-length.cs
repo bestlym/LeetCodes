@@ -1,7 +1,7 @@
 public class Solution {
     public int MaxVowels(string s, int k) {
         
-        var arr = new List<char>{'a', 'e', 'i', 'o', 'u'};
+        var arr = new HashSet<char>{'a', 'e', 'i', 'o', 'u'};
         
         int maxCnt = 0;
         int vowCnt = 0;
