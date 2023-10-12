@@ -3,17 +3,17 @@ public class Solution {
         var left = 0;
         var right = s.Length-1;
         
-        while(right > left){
-            var tmpLeft = s[right];
-            var tmpRight = s[left];
+        while(right > left)
+        {
+            var tempLeft = s[left];
+            var tempRight = s[right];
             
-            s[left] = tmpLeft;
-            s[right] = tmpRight;
+            s[left] = tempRight;
+            s[right] = tempLeft;
             
             left++;
             right--;
         }
         
-        //return s;
     }
 }
