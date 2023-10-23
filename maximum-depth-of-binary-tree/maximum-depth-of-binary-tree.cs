@@ -18,6 +18,6 @@ public class Solution {
         var left = MaxDepth(root.left);
         var right = MaxDepth(root.right);
         
-        return Math.Max(left, right)+1;
+        return Math.Max(left, right) + 1;
     }
 }
