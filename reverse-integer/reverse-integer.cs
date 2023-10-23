@@ -4,7 +4,8 @@ public class Solution {
         var isNegative = x < 0;
         
         var str = x.ToString().TrimStart('-');
-        var negstr = str.Select(x=>x).Reverse();
+        
+        var negstr = str.Reverse();
         var retstr = new String(negstr.ToArray());
         
         var ret = 0;
