@@ -13,7 +13,6 @@ public class Solution {
             
             left++;
             right--;
-        }
-        
+        }                
     }
 }
