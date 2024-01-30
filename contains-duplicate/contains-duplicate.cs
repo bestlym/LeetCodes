@@ -4,7 +4,7 @@ public class Solution {
         
         foreach(int n in nums)
         {
-            if(!hs.Add(n)) return true;   
+            if(!hs.Add(n)) return true;
         }
         return false;
     }
