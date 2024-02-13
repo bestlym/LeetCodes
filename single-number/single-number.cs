@@ -1,10 +1,12 @@
 public class Solution {
     public int SingleNumber(int[] nums) {
-        int ret = 0;
+        Dictionary<int, int> dic = new Dictionary<int, int>();
         
         foreach(int n in nums){
-            ret ^= n;
+            if(dic.ContainsKey(n)) dic[n]++;
+            else dic[n] = 1;
         }
-        return ret;
+        
+        return dic.Where(p=>p.Value == 1).First().Key;
     }
 }
