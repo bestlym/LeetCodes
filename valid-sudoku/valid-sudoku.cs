@@ -36,7 +36,7 @@ public class Solution {
             {
                 for(int col=0; col<3; col++)
                 {
-                    
+
                     int boxRow = row + 3 * (box / 3);                    
                     int boxCol = col + 3 * (box % 3);
                     if(board[boxRow][boxCol] != '.')
