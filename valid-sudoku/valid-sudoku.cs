@@ -1,31 +1,30 @@
 public class Solution {
     public bool IsValidSudoku(char[][] board) {
+        if(board == null || board[0].Length < 9 || board.Length < 9)
+            throw new ArgumentException("Invalid Input");
         
-        if(board == null || board.Length != 9 || board[0].Length != 9)
-            throw new ArgumentException("Invalid Input.");
-        
-        HashSet<char>[] rowSet = new HashSet<char>[9];
-        HashSet<char>[] colSet = new HashSet<char>[9];
-        HashSet<char>[] boxSet = new HashSet<char>[9];
-        for(int i = 0; i < 9; i++)
-        {
-            rowSet[i] = new HashSet<char>();
-            colSet[i] = new HashSet<char>();
-            boxSet[i] = new HashSet<char>();
+        HashSet<char>[] rows = new HashSet<char>[9];
+        HashSet<char>[] cols = new HashSet<char>[9];
+        HashSet<char>[] boxes = new HashSet<char>[9];
+                
+        for(int i=0; i < 9; i++){
+            rows[i] = new HashSet<char>();
+            cols[i] = new HashSet<char>();
+            boxes[i] = new HashSet<char>();
         }
         
-        for(int row = 0; row < 9; row++)
+        for(int row=0; row < 9; row++)
         {
-            for(int col = 0; col < 9; col++)
+            for(int col=0; col < 9; col++)
             {
                 if(board[row][col] != '.')
                 {
-                    if(rowSet[row].Contains(board[row][col]) || colSet[col].Contains(board[row][col]))
-                        return false;
-                    else
+                    if(rows[row].Contains(board[row][col]) || cols[col].Contains(board[row][col]))
                     {
-                        rowSet[row].Add(board[row][col]);
-                        colSet[col].Add(board[row][col]);
+                        return false;
+                    } else {
+                        rows[row].Add(board[row][col]);
+                        cols[col].Add(board[row][col]);                    
                     }
                 }
             }
@@ -42,11 +41,11 @@ public class Solution {
                     int boxCol = col + 3 * (box % 3);
                     if(board[boxRow][boxCol] != '.')
                     {
-                        if(boxSet[box].Contains(board[boxRow][boxCol]))
+                        if(boxes[box].Contains(board[boxRow][boxCol]))
                         {
                             return false;
                         } else {
-                            boxSet[box].Add(board[boxRow][boxCol]);
+                            boxes[box].Add(board[boxRow][boxCol]);
                         }                        
                     }                        
                 }
