@@ -31,21 +31,24 @@ public class Solution {
             }
         }
         
-        for(int box = 0; box < 9; box++)
+        for(int box=0; box < 9; box++)
         {
-            for(int row = 0; row < 3; row++)
+            for(int row=0; row < 3; row++)
             {
-                for(int col = 0; col < 3; col++)
+                for(int col=0; col<3; col++)
                 {
-                    int r = row + 3 * (box / 3);
-                    int c = col + 3 * (box % 3);
-                    if(board[r][c] != '.')
+                    
+                    int boxRow = row + 3 * (box / 3);                    
+                    int boxCol = col + 3 * (box % 3);
+                    if(board[boxRow][boxCol] != '.')
                     {
-                        if(boxSet[box].Contains(board[r][c]))
+                        if(boxSet[box].Contains(board[boxRow][boxCol]))
+                        {
                             return false;
-                        else
-                            boxSet[box].Add(board[r][c]);
-                    }
+                        } else {
+                            boxSet[box].Add(board[boxRow][boxCol]);
+                        }                        
+                    }                        
                 }
             }
         }
