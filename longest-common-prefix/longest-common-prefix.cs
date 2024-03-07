@@ -13,7 +13,7 @@ public class Solution {
         for(int i=0; i < sLen; i++)
         {
             char cs = strs[0][i];
-            for(int j = 0; j < strs.Length; j++) {
+            for(int j = 1; j < strs.Length; j++) {
                 if(cs != strs[j][i]){
                     return sb.ToString();
                 }
