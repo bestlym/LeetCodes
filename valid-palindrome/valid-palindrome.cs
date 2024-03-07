@@ -1,29 +1,29 @@
 public class Solution {
     public bool IsPalindrome(string s) {
-        int start = 0;
-        int end = s.Length-1;
+        int left = 0;
+        int right = s.Length-1;
         
-        while(start < end)
+        while(left < right)
         {
-            if(!Char.IsLetterOrDigit(s[start]))
+            if(!Char.IsLetterOrDigit(s[left]))
             {
-                start++;
+                left++;
                 continue;
             }
             
-            if(!Char.IsLetterOrDigit(s[end]))
+            if(!Char.IsLetterOrDigit(s[right]))
             {
-                end--;
+                right--;
                 continue;
             }
             
-            if(Char.ToLower(s[start]) != Char.ToLower(s[end])) return false;          
-            
-            start++;
-            end--;
+            if(Char.ToLower(s[left]) != Char.ToLower(s[right])) return false;
+            left++;
+            right--;            
         }
         
         return true;
+        
         
     }
 }
