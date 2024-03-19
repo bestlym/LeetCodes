@@ -8,7 +8,7 @@ public class Solution {
         Array.Sort(sArray);
         Array.Sort(tArray);
         
-        s = string.Join("", sArray); 
+        s = new string(sArray);   //string.Join("", sArray); 
         t = new string(tArray);        
         
         return (s == t);
