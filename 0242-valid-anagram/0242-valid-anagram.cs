@@ -9,7 +9,7 @@ public class Solution {
         Array.Sort(tArray);
         
         s = string.Join("", sArray); 
-        t = string.Join("", tArray);  //new string(tArray);        
+        t = new string(tArray);        
         
         return (s == t);
         
