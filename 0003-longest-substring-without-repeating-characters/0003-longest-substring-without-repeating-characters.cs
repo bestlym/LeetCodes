@@ -3,23 +3,22 @@ public class Solution {
         if(s == null || s == string.Empty) {
             return 0;
         }
+        HashSet<int> set = new HashSet<int>();
+        int ret = 0, left=0, right=0;
         
-        int maxVal = 0;
-        int j = 0;
-        int i = 0;
-        
-        HashSet<char> sett = new HashSet<char>();
-        
-        while(j < s.Length){
-            if(!sett.Contains(s[j])){
-                sett.Add(s[j]);
-                j++;
-                maxVal = Math.Max(maxVal, j-i);
+        while(right < s.Length)
+        {
+            if(!set.Contains(s[right]))
+            {
+                set.Add(s[right]);
+                right++;
+                ret = Math.Max(ret, right-left);
             } else {
-                sett.Remove(s[i]);
-                i++;
+                set.Remove(s[left]);
+                left++;
             }
         }
-        return maxVal;
+        return ret;
+
     }
 }
