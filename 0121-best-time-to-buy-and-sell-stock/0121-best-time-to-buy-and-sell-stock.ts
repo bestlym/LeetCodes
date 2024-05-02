@@ -5,7 +5,7 @@ function maxProfit(prices: number[]): number {
     for(let i=0; i < prices.length; i++){
         if(minPrice > prices[i]){
             minPrice = prices[i];
-        } else if(prices[i] - minPrice > maxProfit){
+        } else if( maxProfit < prices[i] - minPrice){
             maxProfit = prices[i] - minPrice;
         }            
     }
