@@ -3,7 +3,7 @@ function maxSubArray(nums: number[]): number {
     if(nums.length == 1) return nums[0];
     
     let sum: number = 0;
-    let ret: number = nums[0];
+    let ret: number = -10001;
     
     for(const n of nums){
         sum+=n;
