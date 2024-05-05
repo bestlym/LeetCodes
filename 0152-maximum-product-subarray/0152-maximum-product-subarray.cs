@@ -8,9 +8,7 @@ public class Solution {
             prevMax = max;
             max = Math.Max(max*n, Math.Max(min*n, n));
             min = Math.Min(prevMax*n, Math.Min(min*n, n));
-            ret = Math.Max(max, ret);
-            
-            Console.WriteLine($" {max}:{min}:{ret}");
+            ret = Math.Max(max, ret);            
         }
         
         return ret;
