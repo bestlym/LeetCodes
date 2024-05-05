@@ -4,13 +4,10 @@ function maxProduct(nums: number[]): number {
     let max: number=1;
     
     for(const n of nums){
-    //nums.forEach((n) => {
         const preVal = [min*n, max*n, n];
         max = Math.max(...preVal);
-        min = Math.min(...preVal);
-        
+        min = Math.min(...preVal);        
         ret = Math.max(max, ret);
-    //});
     }
     
     return ret;
