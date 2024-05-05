@@ -11,7 +11,6 @@ public class Solution {
             ret = Math.Max(sum, ret);
             if(sum < 0) sum = 0;
         }
-
         
         return ret;
     }
