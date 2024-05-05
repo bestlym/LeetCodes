@@ -13,4 +13,5 @@ function sortedSquares(nums: number[]): number[] {
         }
     }
     return ret;
+    //return nums.map((num) => num ** 2).sort((a, b) => a - b); //one line approach
 };
