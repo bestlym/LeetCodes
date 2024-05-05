@@ -1,23 +1,25 @@
 public class Solution {
     public int NumSubarrayProductLessThanK(int[] nums, int k) {
-        if (k <= 1) return 0; 
+        if(k <= 1) return 0;
         
-        int ret = 0, left=0, curr=1;
+        int cnt = 0;
+        int currProd = 1;
+        int left = 0;
         
-        for(var i=0; i < nums.Length; i++){
-            curr *= nums[i];
-            while(left<i && curr >= k)
+        for(int right=0; right < nums.Length; right++)
+        {
+            currProd *= nums[right];
+            while(currProd >= k)
             {
-                curr /= nums[left];
-                left++;             
+                currProd /= nums[left];
+                left++;
             }
             
-            if(curr < k){
-                ret += (i-left+1);
-            }
+            cnt += right-left+1;
             
         }
         
-        return ret;
+        return cnt;
+        
     }
 }
