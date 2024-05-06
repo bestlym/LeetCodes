@@ -1,6 +1,6 @@
 function waysToSplitArray(nums: number[]): number {
-    let sum=0;
-    const prefix = nums.map((val) => sum+=val);
+    let sum:number=0;
+    const prefix = nums.map(val => sum+=val);
     
     let ret: number=0;
     
