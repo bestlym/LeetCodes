@@ -1,17 +1,21 @@
 public class Solution {
     public int WaysToSplitArray(int[] nums) {
-        int ret = 0;
-        long sum = 0, left = 0;
+        var pre = new int[nums.Length];
+        long sum=0, currSum=0;
         
-        foreach(var n in nums){
+        foreach(var n in nums)
+        {
             sum += n;
         }
         
-        for(int i=0; i < nums.Length-1; i++){
-            left += nums[i];
-            long right = sum - left;
-            if(left >= right) ret++;
+        var ret = 0;
+        
+        for(int i=0; i < nums.Length-1; i++)
+        {
+            currSum+=nums[i];
+            if(currSum >= sum-currSum) ret++;
         }
+        
         return ret;
     }
 }
