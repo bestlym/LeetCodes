@@ -1,8 +1,4 @@
 function runningSum(nums: number[]): number[] {
-    for(let i: number = 1; i < nums.length; i++)
-        {
-            nums[i] = nums[i-1] + nums[i];
-        }
-    
-    return nums;
+    let sum=0;
+    return nums.map((val) => sum+=val);
 };
