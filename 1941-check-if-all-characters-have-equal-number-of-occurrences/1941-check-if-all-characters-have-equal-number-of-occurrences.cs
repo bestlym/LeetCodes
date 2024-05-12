@@ -9,6 +9,7 @@ public class Solution {
         
         var piv = dic[s[0]];
         
-        return dic.Where(w=>w.Value != piv).Count() == 0;
+        //return dic.Where(w=>w.Value != piv).Count() == 0;
+        return dic.Values.Distinct().Count() == 1;
     }
 }
