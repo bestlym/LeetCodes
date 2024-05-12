@@ -5,7 +5,7 @@ public class Solution {
         
         for(int i = 0; i < nums.Length; i++){
             curr += nums[i];
-            ret += dic.GetValueOrDefault(curr-k);
+            ret += dic.GetValueOrDefault(curr-k, 0);
             dic[curr] = dic.GetValueOrDefault(curr) + 1;
         }        
         return ret;
