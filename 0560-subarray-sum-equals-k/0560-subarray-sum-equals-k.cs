@@ -4,7 +4,7 @@ public class Solution {
         Dictionary<int, int> dic = new Dictionary<int, int>{[0] = 1};
         
         foreach(int n in nums){
-            curr += n;
+            curr += n; 
             ret += dic.GetValueOrDefault(curr-k, 0);
             dic[curr] = dic.GetValueOrDefault(curr, 0) + 1;
         }        
