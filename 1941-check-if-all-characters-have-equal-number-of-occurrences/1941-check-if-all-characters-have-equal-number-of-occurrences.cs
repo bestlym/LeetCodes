@@ -1,16 +1,14 @@
 public class Solution {
     public bool AreOccurrencesEqual(string s) {
+        var dic = new Dictionary<int, int>();
         
-        bool ret = true;
-
-        Dictionary<char, int> dic = new Dictionary<char, int>();
+        foreach(char c in s){
+            if(dic.ContainsKey(c)) dic[c]++;
+            else dic[c] = 1;
+        }
         
-        for(int i = 0; i < s.Length; i++){
-            if(dic.ContainsKey(s[i])) dic[s[i]]++;
-            else dic.Add(s[i], 1);
-        }        
+        var piv = dic[s[0]];
         
-        return dic.Values.Distinct().Count() == 1;
-        
+        return dic.Where(w=>w.Value != piv).Count() == 0;
     }
 }
