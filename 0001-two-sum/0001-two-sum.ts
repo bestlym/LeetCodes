@@ -1,13 +1,13 @@
 function twoSum(nums: number[], target: number): number[] {
-    const nemMap = new Map();
+    //if(number.length < 2 || number = undefined) return new Array[]: number;
+    const newMap = new Map();
     
-    for(let i=0; i<nums.length;i++){
+    for(let i=0; i < nums.length; i++){
         const remaining = target - nums[i];
-        if(nemMap.has(remaining)){
-            console.log(remaining);
-            return [nemMap.get(remaining), i];
-        } 
-        
-        nemMap.set(nums[i], i);
+        if(newMap.has(target-nums[i])){
+            return [newMap.get(remaining), i];
+        }
+        newMap.set(nums[i], i);
     }
+    
 };
