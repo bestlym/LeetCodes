@@ -2,7 +2,7 @@ public class Solution {
     public bool CheckIfPangram(string sentence) {
         if(sentence.Length < 26) return false;
         
-        var hs = new HashSet<char>(26);
+        var hs = new HashSet<char>();
         
         foreach(char c in sentence)
         {
@@ -10,6 +10,5 @@ public class Solution {
         }
         
         return hs.Count == 26;
-        
     }
 }
