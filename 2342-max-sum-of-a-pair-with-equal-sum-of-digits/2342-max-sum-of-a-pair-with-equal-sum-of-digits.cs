@@ -1,30 +1,27 @@
 public class Solution {
     public int MaximumSum(int[] nums) {
-        Dictionary<int, int> hs = new Dictionary<int, int>();
-        int left = 0, max = -1;
+        var dic = new Dictionary<int, int>();
+        int ret = int.MinValue;
         
         foreach(int n in nums){
-            //int[] numArr = n.ToIntArray();
-            List<int> numArr = new List<int>();
-            int n2 = n;
-            while (n2 > 0){
-                numArr.Add(n2 % 10);
-                n2 /= 10;
+            var digit = GetSumOfDigits(n);
+            if(dic.ContainsKey(digit)) 
+            {
+                ret = Math.Max(ret, dic[digit]+n);
+                if(dic[digit] >= n) continue;
             }
-            
-            var currSum = numArr.Sum();
-
-            if(hs.ContainsKey(currSum)){
-                
-                max = Math.Max(max, n + hs[currSum]);
-                
-                if (hs[currSum] < n)
-                    hs[currSum] = n;
-            } else {
-                hs[currSum] = n;
-            }
-            
+            dic[digit] = n;
         }
-        return max;
+        return (ret == int.MinValue) ? -1 : ret;
+        
+    }
+    public int GetSumOfDigits(int num){
+        int ret = 0;
+        while(num > 0)
+        {
+            ret+=num%10;
+            num /= 10;
+        }
+        return ret;
     }
 }
