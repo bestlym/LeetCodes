@@ -9,8 +9,8 @@ public class Solution {
             dic[match[1]] = dic.GetValueOrDefault(match[1], 0) + 1;
         }
         
-        List<int> retList1 = new List<int>();
-        List<int> retList2 = new List<int>();
+        IList<int> retList1 = new List<int>();
+        IList<int> retList2 = new List<int>();
         
         foreach(var d in dic){
             if(d.Value == 0) retList1.Add(d.Key);
