@@ -16,11 +16,11 @@ public class Solution {
             if(d.Value == 0) retList1.Add(d.Key);
             else if(d.Value == 1) retList2.Add(d.Key);
         }
-        ret.Add(retList1);
-        ret.Add(retList2);
+        ret.Add(retList1.OrderBy(x => x).ToList());
+        ret.Add(retList2.OrderBy(x => x).ToList());
         
-        ret[0] = ret[0].OrderBy(x => x).ToList();
-        ret[1] = ret[1].OrderBy(x => x).ToList();
+        //ret[0] = ret[0].OrderBy(x => x).ToList();
+        //ret[1] = ret[1].OrderBy(x => x).ToList();
             
         return ret;
     }    
