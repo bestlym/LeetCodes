@@ -5,7 +5,7 @@ public class Solution {
             return ret;
         SortedDictionary<int, int> dic = new SortedDictionary<int, int>();
         
-        foreach(var match in matches){
+        foreach(int[] match in matches){
             dic[match[0]] = dic.GetValueOrDefault(match[0], 0);
             dic[match[1]] = dic.GetValueOrDefault(match[1], 0) + 1;
         }
@@ -13,7 +13,7 @@ public class Solution {
         List<int> retList1 = new List<int>();
         List<int> retList2 = new List<int>();
         
-        foreach(var d in dic){
+        foreach(KeyValuePair<int, int> d in dic){
             if(d.Value == 0) retList1.Add(d.Key);
             else if(d.Value == 1) retList2.Add(d.Key);
         }
