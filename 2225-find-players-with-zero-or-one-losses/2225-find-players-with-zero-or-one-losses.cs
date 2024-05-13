@@ -1,8 +1,8 @@
 public class Solution {
     public IList<IList<int>> FindWinners(int[][] matches) {
-        List<IList<int>> ret = new List<IList<int>>();
+        IList<IList<int>> ret = new List<IList<int>>();
 
-        SortedDictionary<int, int> dic = new SortedDictionary<int, int>();
+        Dictionary<int, int> dic = new Dictionary<int, int>();
         
         foreach(var match in matches){
             dic[match[0]] = dic.GetValueOrDefault(match[0], 0);
@@ -18,6 +18,9 @@ public class Solution {
         }
         ret.Add(retList1);
         ret.Add(retList2);
+        
+        ret[0] = ret[0].OrderBy(x => x).ToList();
+        ret[1] = ret[1].OrderBy(x => x).ToList();
             
         return ret;
     }    
