@@ -6,7 +6,7 @@ function equalPairs(grid: number[][]): number {
         const arrStr:string = item.join(' ');
         map[arrStr] = (map[arrStr] || 0) +1;
     });
-    console.log(map);
+
     for(let i=0; i< grid.length; i++){
         const arr = [];
         for(let j=0; j < grid.length; j++){
