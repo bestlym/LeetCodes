@@ -1,8 +1,7 @@
 public class Solution {
     public IList<IList<int>> FindWinners(int[][] matches) {
         List<IList<int>> ret = new List<IList<int>>();
-        if(matches == null || matches.Length == 0)
-            return ret;
+
         SortedDictionary<int, int> dic = new SortedDictionary<int, int>();
         
         foreach(int[] match in matches){
