@@ -17,6 +17,7 @@ public class Solution {
         }
         
         return min == int.MaxValue ? -1 : min;
+        
     }
 }
 
