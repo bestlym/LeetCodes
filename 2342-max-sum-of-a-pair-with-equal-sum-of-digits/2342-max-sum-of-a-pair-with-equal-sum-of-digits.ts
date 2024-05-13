@@ -2,7 +2,7 @@ function maximumSum(nums: number[]): number {
     const map: Map<number, number> = new Map();
     let ret = -1;
     
-    const digitSum = (num) => [...num.toString()].reduce((acc, val) => acc + parseInt(val), 0);
+    //const digitSum = (num) => [...num.toString()].reduce((acc, val) => acc + parseInt(val), 0);
     
     const getDigitSum = (num: number): number => {
         let sum = 0;
