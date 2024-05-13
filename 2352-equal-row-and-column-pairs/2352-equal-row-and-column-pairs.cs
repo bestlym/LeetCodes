@@ -1,27 +1,26 @@
 public class Solution {
     public int EqualPairs(int[][] grid) {
+        var dic = new Dictionary<string, int>();
         int ret = 0;
         
-        Dictionary<string, int> dic = new Dictionary<string, int>();
-        string compStr = string.Empty;
+        foreach(int[] g in grid)
+        {
+            var arrStr = string.Join(" ", g);
+            if(!dic.TryAdd(arrStr, 1)) dic[arrStr]++;
+            //dic[arrStr] = dic.GetValueOrDefault(arrStr, 0)+1;            
+            //if(!dic.ContainsKey(arrStr)) dic.Add(arrSrt, 0);                
+            //dic[arrStr]++;            
+        }
         
-        for(int i=0; i < grid.Length; i++){
-            var addStr =  String.Join(" ", grid[i]);
-            if(!dic.TryAdd(addStr, 1)) dic[addStr]++;
-        }        
-        
-        for(int d=0; d < grid.Length; d++){
-            StringBuilder sb = new StringBuilder();
+        for(int i=0; i < grid.Length; i++)
+        {
+            int[] colArr = new int[grid.Length];
             for(int j=0; j < grid.Length; j++)
-            {   
-                var addStr2 = (j != grid.Length - 1) ? (grid[j][d] + " ").ToString() : grid[j][d].ToString();
-                sb.Append(addStr2);
+            {
+                colArr[j] = grid[j][i];
             }
-            compStr = sb.ToString();        
-
-            if(dic.ContainsKey(compStr)) ret += dic[compStr];
+            ret += dic.GetValueOrDefault(string.Join(" ", colArr), 0);
         }        
-        
-        return ret;
+        return ret;        
     }
 }
