@@ -4,7 +4,7 @@ public class Solution {
 
         foreach(char c in s)
         {
-            if(stack.Count > 0 && stack.Peek() == c)
+            if(stack.TryPeek(out char d) && d == c)
             {
                 stack.Pop();
             } else {
