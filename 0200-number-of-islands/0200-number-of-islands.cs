@@ -1,43 +1,41 @@
 public class Solution {
     public int NumIslands(char[][] grid) {
-        int[] dx = new int[]{1, -1, 0, 0};
-        int[] dy = new int[]{0, 0, 1, -1};
+        var dx = new int[]{1,-1,0,0};
+        var dy = new int[]{0,0,1,-1};
         
-        Queue<int[]> q = new Queue<int[]>();
-        int res = 0;
+        var queue = new Queue<(int, int)>();
+        int ret = 0;
         
-        for(int i=0; i < grid.Length; i++)
+        for(int row=0; row < grid.Length; row++)
         {
-            for(int j=0; j < grid[0].Length; j++)
+            for(int col=0; col < grid[0].Length; col++)
             {
-                if(grid[i][j] == '1')
+                if(grid[row][col] == '1')
                 {
-                    res++;
-                    q.Enqueue(new int[]{i, j});
-                    grid[i][j] = '0';
+                    ret++;
+                    queue.Enqueue((row, col));
+                    grid[row][col] = '0';
                     
-                    while(q.Count > 0)
-                    {
-                        int[] curr = q.Dequeue();
+                    while(queue.Count > 0){
+                        (int, int) curr = queue.Dequeue();
                         
-                        for(int k=0; k < 4; k++)
+                        for(int i=0; i < 4; i++)
                         {
-                            var newX = curr[0] + dx[k];
-                            var newY = curr[1] + dy[k];
+                            var newX = curr.Item1 + dx[i];
+                            var newY = curr.Item2 + dy[i];
                             
-                            if(newX > -1 && newY > -1 && newX < grid.Length && newY < grid[0].Length
-                              && grid[newX][newY] != '0')
+                            if(newX > -1 && newY > -1 && newX < grid.Length && newY < grid[0].Length && grid[newX][newY] != '0')
                             {
-                                q.Enqueue(new int[]{newX, newY});
+                                queue.Enqueue((newX, newY));
                                 grid[newX][newY] = '0';
                             }
                                 
                         }
-                    }                    
+                    }
                 }
             }
         }
-        return res;
+        return ret;
         
     }
 }
