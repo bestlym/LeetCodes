@@ -1,22 +1,22 @@
 public class MovingAverage {
-    
     private Queue<int> queue;
-    private int Size;
+    private int Size;    
     private double sum;
-
+    
     public MovingAverage(int size) {
         queue = new Queue<int>();
-        Size = size;        
+        Size = size;
     }
     
     public double Next(int val) {
-        sum += val;
+        sum+= val;
         queue.Enqueue(val);
         
         if(queue.Count > Size)
             sum -= queue.Dequeue();
         
         return sum / queue.Count;
+        
     }
 }
 
