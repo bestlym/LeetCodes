@@ -1,9 +1,9 @@
 public class Solution {
     public bool BackspaceCompare(string s, string t) {
-        var test1 = BuildStack(s);
-        var test2 = BuildStack(t);
+        //var test1 = BuildStack(s);
+        //var test2 = BuildStack(t);
 
-        return (test1 == test2);
+        return (BuildStack(s) == BuildStack(t));
     }
     
     public string? BuildStack(string s){
