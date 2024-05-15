@@ -18,6 +18,7 @@ public class Solution {
             }
         }
         
-        return string.Concat(stack);
+        //return string.Concat(stack);
+        return new String(stack.ToArray());
     }
 }
