@@ -13,12 +13,21 @@
  */
 public class Solution {
     public bool IsSameTree(TreeNode p, TreeNode q) {
-        if(p==null && q==null) return true;
+        Stack<(TreeNode, TreeNode)> stack = new Stack<(TreeNode, TreeNode)>();
+        stack.Push((p, q));
         
-        if(p==null || q==null) return false;
-        if(p.val != q.val) return false;
-        
-        return (IsSameTree(p.left, q.left) && IsSameTree(p.right, q.right));
-        
+        while(stack.Count > 0)
+        {
+            (p, q) = stack.Pop();
+            if(p == null && q == null) continue;
+            
+            if(p == null || q == null) return false;
+            
+            if(p.val != q.val) return false;
+            
+            stack.Push((p.left, q.left));
+            stack.Push((p.right, q.right));            
+        }        
+        return true;        
     }
 }
