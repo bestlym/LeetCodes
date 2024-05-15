@@ -1,23 +1,23 @@
 public class Solution {
     public bool BackspaceCompare(string s, string t) {
-        return CheckStr(s) == CheckStr(t);
+        var test1 = BuildStack(s);
+        var test2 = BuildStack(t);
+
+        return (test1 == test2);
     }
-
-    public string CheckStr(string str)
-    {
-        if(str.Length == 0)
-            return "";
-
-        Stack<char> stack = new Stack<char>();
-
-        foreach(var s in str){
-            if(s != '#'){
-                stack.Push(s);
-            } else if(stack.Count > 0){
-                stack.Pop();
+    
+    public string? BuildStack(string s){
+        var stack = new Stack<char>();
+        
+        foreach(char c in s){
+            if(c != '#')
+            {
+                stack.Push(c);                
+            } else {
+                stack.TryPop(out char r);
             }
         }
-        //Console.WriteLine(new string(stack.ToArray()));
-        return new string(stack.ToArray()); //stack.ToString();
+        
+        return string.Concat(stack);
     }
 }
