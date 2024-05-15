@@ -23,12 +23,12 @@ public class Solution {
     {
         if(node.val >= maxVal) ret++;
         
-        if(node.right != null) {
-            DFS(node.right, Math.Max(node.val, maxVal));
+        if(node.left != null) {
+            DFS(node.left, Math.Max(node.val, maxVal));
         }
         
-        if(node.left != null){
-            DFS(node.left, Math.Max(node.val, maxVal));
+        if(node.right != null){
+            DFS(node.right, Math.Max(node.val, maxVal));
         }
     }
 }
