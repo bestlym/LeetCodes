@@ -1,7 +1,7 @@
 public class Solution {
     public void ReverseString(char[] s) {
-        int left = 0;
-        int right = s.Length-1;
+        var left = 0;
+        var right = s.Length-1;
         
         while(left < right)
         {
@@ -10,7 +10,7 @@ public class Solution {
             s[right] = temp;
             
             left++;
-            right--;            
-        }
+            right--;
+        }        
     }
 }
