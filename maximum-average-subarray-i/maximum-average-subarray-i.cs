@@ -1,22 +1,26 @@
 public class Solution {
     public double FindMaxAverage(int[] nums, int k) {
-        int currSum = 0;
+        int curr = 0;
         int left = 0, right = 0;
         int ret = int.MinValue;
         
         while(right < nums.Length)
         {
-            currSum += nums[right];
+            curr += nums[right];
             right++;
             
-            if(right-left > k)
+            if(right - left > k)
             {
-                currSum -= nums[left];
+                curr -= nums[left];
                 left++;
             }
             
             if(right-left == k)
-                ret = Math.Max(ret, currSum);
+            {
+                ret = Math.Max(ret, curr);
+            }
+            
+            
         }
         
         return (double)ret/k;
