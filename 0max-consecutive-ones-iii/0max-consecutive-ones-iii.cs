@@ -1,16 +1,16 @@
 public class Solution {
     public int LongestOnes(int[] nums, int k) {
         int ret = 0;
+        int zeroCount = 0;
         int left = 0;
-        int zeroCnt = 0;
         
         for(int right = 0; right < nums.Length; right++)
         {
-            if(nums[right] == 0) zeroCnt++;
+            if(nums[right] == 0) zeroCount++;
             
-            while(zeroCnt > k)
+            while(zeroCount > k)
             {
-                if(nums[left] == 0) zeroCnt--;
+                if(nums[left] == 0) zeroCount--;
                 left++;
             }
             
